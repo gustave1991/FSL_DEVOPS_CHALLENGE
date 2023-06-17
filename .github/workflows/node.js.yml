@@ -20,7 +20,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: path/to/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('path/to/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('.blob/main/codebase/rdicidr-0.1.0/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Use Node.js ${{ matrix.node-version }}
