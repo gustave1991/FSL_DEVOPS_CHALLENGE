@@ -19,8 +19,7 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
-          path: path/to/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('.blob/main/codebase/rdicidr-0.1.0/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('./codebase/rdicidr-0.1.0/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Use Node.js ${{ matrix.node-version }}
@@ -28,8 +27,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: cd .blob/main/codebase/rdicidr-0.1.0/package.json && npm ci
-      - run: cd .blob/main/codebase/rdicidr-0.1.0/package.json && npm run lint
-      - run: cd .blob/main/codebase/rdicidr-0.1.0/package.json && npm run prettier
-      - run: cd .blob/main/codebase/rdicidr-0.1.0/package.json && CI=true npm run test
-      - run: cd .blob/main/codebase/rdicidr-0.1.0/package.json && npm run build
+      - run: npm install
+      - run: npm run lint
+      - run: npm run prettier
+      - run: CI=true npm run test
+      - run: npm run build
