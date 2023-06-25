@@ -19,10 +19,10 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-          path: /home/runner/.npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.npm
+          key: ${{ runner.OS }}-cache-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-npm-
+            ${{ runner.OS }}-cache-
 
     - run: npm install --prefix ./codebase/rdicidr-0.1.0/package.json
     - run: npm run lint --prefix ./codebase/rdicidr-0.1.0/package.json
