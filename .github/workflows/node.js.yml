@@ -22,6 +22,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: '**/package-lock.json'
-    - run: npm ci --prefix ./codebase/rdicidr-0.1.0/package.json
-    - run: npm run build --if-present --prefix ./codebase/rdicidr-0.1.0/package.json
-    - run: npm test --prefix ./codebase/rdicidr-0.1.0/package.json
+    - run: npm install --prefix ./codebase/rdicidr-0.1.0/package.json
+    - run: npm run lint --prefix ./codebase/rdicidr-0.1.0/package.json
+    - run: npm run prettier --prefix ./codebase/rdicidr-0.1.0/package.json
+    - run: CI=true npm run test --prefix ./codebase/rdicidr-0.1.0/package.json
+    - run: npm run build --prefix ./codebase/rdicidr-0.1.0/package.json
+   
