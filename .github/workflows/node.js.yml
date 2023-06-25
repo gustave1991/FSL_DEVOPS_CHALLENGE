@@ -25,9 +25,9 @@ jobs:
           ${{ runner.os }}-npm-
         node-version: ${{ matrix.node-version }}
     - run: npm cache clean --force
-    - run: npm install --prefix ./codebase/rdicidr-0.1.0/package.json
-    - run: npm run lint --prefix ./codebase/rdicidr-0.1.0/package.json
-    - run: npm run prettier --prefix ./codebase/rdicidr-0.1.0/package.json
-    - run: CI=true npm run test --prefix ./codebase/rdicidr-0.1.0/package.json
-    - run: npm run build --prefix ./codebase/rdicidr-0.1.0/package.json
+    - run: npm install  --force --prefix ./codebase/rdicidr-0.1.0/package.json
+    - run: npm run lint --force --prefix ./codebase/rdicidr-0.1.0/package.json
+    - run: npm run prettier --force --prefix ./codebase/rdicidr-0.1.0/package.json
+    - run: CI=true npm run test --force --prefix ./codebase/rdicidr-0.1.0/package.json
+    - run: npm run build --force --prefix ./codebase/rdicidr-0.1.0/package.json
    
